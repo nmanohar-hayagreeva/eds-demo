@@ -1,0 +1,385 @@
+/* SAFRA Complex Block: Explore SAFRA Multi-Filter + Card Carousel */
+.explore-safra {
+  padding: 20px 0 32px;
+}
+
+/* Header Row */
+.explore-safra .explore-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.explore-safra .explore-title {
+  margin: 0;
+  font-size: clamp(22px, 2.5vw, 30px);
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.explore-safra .explore-title-muted {
+  color: var(--safra-muted);
+}
+
+.explore-safra .explore-title-accent {
+  color: var(--safra-red);
+}
+
+.explore-safra .explore-see-all {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 130px;
+  padding: 10px 24px;
+  border: 1px solid var(--safra-red);
+  border-radius: 5px;
+  color: var(--safra-red);
+  background: transparent;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.explore-safra .explore-see-all:hover {
+  background-color: var(--safra-red);
+  color: #fff;
+  text-decoration: none;
+}
+
+/* 3-Dropdown Filter Bar */
+.explore-safra .explore-filter-bar {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  align-items: end;
+  padding: 18px 0 22px;
+  border-top: 1px solid var(--safra-border);
+  border-bottom: 1px dotted #797979;
+  margin-bottom: 20px;
+}
+
+@media (width >= 900px) {
+  .explore-safra .explore-filter-bar {
+    grid-template-columns: repeat(3, 1fr) auto;
+    gap: 20px;
+  }
+}
+
+.explore-safra .explore-filter-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.explore-safra .explore-filter-field label {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--safra-muted);
+}
+
+.explore-safra .explore-filter-select {
+  appearance: none;
+  width: 100%;
+  padding: 11px 36px 11px 14px;
+  border: 1px solid var(--safra-border);
+  border-radius: 5px;
+  background-color: #fff;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--safra-red) 50%),
+    linear-gradient(135deg, var(--safra-red) 50%, transparent 50%);
+  background-position:
+    calc(100% - 18px) 50%,
+    calc(100% - 12px) 50%;
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+  color: var(--text-color);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.explore-safra .explore-filter-select:focus {
+  outline: 2px solid var(--safra-red);
+  border-color: var(--safra-red);
+}
+
+.explore-safra .explore-reset-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--safra-border);
+  border-radius: 5px;
+  background-color: var(--safra-surface);
+  color: var(--text-color);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.explore-safra .explore-reset-btn:hover {
+  background-color: var(--safra-red);
+  border-color: var(--safra-red);
+  color: #fff;
+}
+
+/* Category Pills + Result Counter */
+.explore-safra .explore-subbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.explore-safra .explore-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.explore-safra .explore-pill {
+  padding: 6px 18px;
+  border: 1px solid var(--safra-border);
+  border-radius: 30px;
+  background-color: #fff;
+  color: var(--text-color);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+
+.explore-safra .explore-pill:hover,
+.explore-safra .explore-pill.is-active {
+  background-color: var(--safra-red);
+  border-color: var(--safra-red);
+  color: #fff;
+}
+
+.explore-safra .explore-count {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--safra-muted);
+}
+
+/* Carousel Stage & Cards */
+.explore-safra .explore-stage {
+  position: relative;
+}
+
+.explore-safra .explore-grid {
+  display: flex;
+  gap: 22px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 8px 4px 20px;
+  scrollbar-width: none;
+}
+
+.explore-safra .explore-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.explore-safra .explore-card {
+  flex: 0 0 calc(85% - 12px);
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--safra-shadow);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.explore-safra .explore-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 34px rgb(0 0 0 / 15%);
+}
+
+@media (width >= 600px) {
+  .explore-safra .explore-card {
+    flex: 0 0 calc(50% - 12px);
+  }
+}
+
+@media (width >= 900px) {
+  .explore-safra .explore-card {
+    flex: 0 0 calc(25% - 17px);
+  }
+}
+
+.explore-safra .explore-card-media {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background-color: var(--safra-surface-alt);
+}
+
+.explore-safra .explore-card-media picture,
+.explore-safra .explore-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.explore-safra .explore-card:hover .explore-card-media img {
+  transform: scale(1.04);
+}
+
+.explore-safra .explore-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 18px 16px 22px;
+  flex: 1;
+}
+
+/* Category Badge Variants (from SAFRA palette) */
+.explore-safra .explore-badge {
+  display: inline-block;
+  padding: 4px 16px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 12px;
+  letter-spacing: 0.03em;
+}
+
+.explore-safra .explore-badge-red {
+  background-color: var(--safra-red);
+}
+
+.explore-safra .explore-badge-orange {
+  background-color: var(--safra-orange);
+}
+
+.explore-safra .explore-badge-blue {
+  background-color: var(--safra-blue);
+}
+
+.explore-safra .explore-badge-green {
+  background-color: var(--safra-green);
+}
+
+.explore-safra .explore-badge-purple {
+  background-color: var(--safra-purple);
+}
+
+.explore-safra .explore-card-title {
+  margin: 0 0 10px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.38;
+  color: var(--text-color);
+}
+
+.explore-safra .explore-card-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.explore-safra .explore-card-title a:hover {
+  color: var(--safra-red);
+  text-decoration: underline;
+}
+
+.explore-safra .explore-card-location {
+  margin: auto 0 6px;
+  padding: 4px 12px;
+  border-radius: 30px;
+  background-color: var(--safra-surface-alt);
+  color: #555;
+  font-size: 12px;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.explore-safra .explore-card-date {
+  margin: 4px 0 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--safra-muted);
+}
+
+/* Carousel Arrows */
+.explore-safra .explore-arrow {
+  position: absolute;
+  top: 42%;
+  transform: translateY(-50%);
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 50%;
+  background-color: #fff;
+  color: var(--text-color);
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 18%);
+  transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+}
+
+.explore-safra .explore-arrow:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.explore-safra .explore-arrow:hover:not(:disabled) {
+  background-color: var(--safra-red);
+  color: #fff;
+}
+
+.explore-safra .explore-arrow-prev {
+  left: -14px;
+}
+
+.explore-safra .explore-arrow-next {
+  right: -14px;
+}
+
+/* Empty State */
+.explore-safra .explore-empty {
+  text-align: center;
+  padding: 40px 20px;
+  border-radius: 8px;
+  background-color: var(--safra-surface);
+  border: 1px dashed var(--safra-border);
+}
+
+.explore-safra .explore-empty p {
+  margin: 0 0 14px;
+  color: #555;
+  font-size: 15px;
+}
+
+.explore-safra .explore-empty-reset {
+  padding: 10px 22px;
+  border: 1px solid var(--safra-red);
+  border-radius: 5px;
+  background-color: var(--safra-red);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.explore-safra .explore-empty-reset:hover {
+  background-color: var(--safra-red-dark);
+}

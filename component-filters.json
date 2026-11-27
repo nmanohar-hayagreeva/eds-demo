@@ -13,6 +13,8 @@
       "button",
       "title",
       "hero",
+      "carousel",
+      "explore-safra",
       "cards",
       "columns",
       "fragment"
@@ -22,6 +24,12 @@
     "id": "cards",
     "components": [
       "card"
+    ]
+  },
+  {
+    "id": "carousel",
+    "components": [
+      "carousel-slide"
     ]
   },
   {
@@ -37,6 +45,12 @@
       "image",
       "button",
       "title"
+    ]
+  },
+  {
+    "id": "explore-safra",
+    "components": [
+      "explore-safra-item"
     ]
   }
 ]
