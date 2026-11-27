@@ -161,6 +161,32 @@
     ]
   },
   {
+    "id": "carousel-slide",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Slide Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Image Alt Text",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Slide Content (Badge, Title, Description & CTA)",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "columns",
     "fields": [
       {
@@ -176,6 +202,61 @@
         "name": "rows",
         "value": "",
         "label": "Rows"
+      }
+    ]
+  },
+  {
+    "id": "explore-safra-item",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Card Image",
+        "multi": false
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "badge",
+        "label": "Category Badge",
+        "value": "Promotion",
+        "options": [
+          {
+            "name": "Promotion",
+            "value": "Promotion"
+          },
+          {
+            "name": "Event",
+            "value": "Event"
+          },
+          {
+            "name": "Facility",
+            "value": "Facility"
+          },
+          {
+            "name": "Club",
+            "value": "Club"
+          },
+          {
+            "name": "Article",
+            "value": "Article"
+          }
+        ]
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "title",
+        "label": "Title & Link",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "meta",
+        "label": "Filter Metadata (Visiting | Interest | Clubs | Date)",
+        "value": "with my family | Leisure & Entertainment | SAFRA Jurong | Ongoing"
       }
     ]
   },
@@ -196,22 +277,29 @@
         "component": "reference",
         "valueType": "string",
         "name": "image",
-        "label": "Image",
+        "label": "Background Image",
         "multi": false
       },
       {
         "component": "text",
         "valueType": "string",
         "name": "imageAlt",
-        "label": "Alt",
+        "label": "Image Alt Text",
         "value": ""
       },
       {
         "component": "richtext",
         "name": "text",
         "value": "",
-        "label": "Text",
+        "label": "Hero Content (Eyebrow, Heading, Copy & CTA)",
         "valueType": "string"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "announcements",
+        "label": "Announcements Ticker (separate items with |)",
+        "value": ""
       }
     ]
   }

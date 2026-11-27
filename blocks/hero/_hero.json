@@ -24,22 +24,29 @@
           "component": "reference",
           "valueType": "string",
           "name": "image",
-          "label": "Image",
+          "label": "Background Image",
           "multi": false
         },
         {
           "component": "text",
           "valueType": "string",
           "name": "imageAlt",
-          "label": "Alt",
+          "label": "Image Alt Text",
           "value": ""
         },
         {
           "component": "richtext",
           "name": "text",
           "value": "",
-          "label": "Text",
+          "label": "Hero Content (Eyebrow, Heading, Copy & CTA)",
           "valueType": "string"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "announcements",
+          "label": "Announcements Ticker (separate items with |)",
+          "value": ""
         }
       ]
     }

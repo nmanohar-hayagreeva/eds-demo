@@ -1,3 +1,4 @@
+/* SAFRA Full-Bleed Hero Banner */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -5,33 +6,190 @@
 
 .hero {
   position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
+  display: flex;
+  align-items: center;
+  min-height: 440px;
+  padding: 64px 24px 88px;
+  overflow: hidden;
+  color: #fff;
+  background-color: #161616;
 }
 
-.hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--background-color);
-}
-
-.hero picture {
+.hero::after {
+  content: '';
   position: absolute;
-  z-index: -1;
   inset: 0;
-  object-fit: cover;
-  box-sizing: border-box;
+  background: linear-gradient(
+    90deg,
+    rgb(0 0 0 / 78%) 0%,
+    rgb(0 0 0 / 48%) 52%,
+    rgb(0 0 0 / 18%) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
 }
 
-.hero img {
-  object-fit: cover;
+.hero .hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero .hero-media picture,
+.hero .hero-media img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero .hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero .hero-content > div {
+  max-width: 640px;
+}
+
+.hero .hero-content h1,
+.hero .hero-content h2 {
+  color: #fff;
+  margin: 0 0 14px;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 700;
+  line-height: 1.15;
+  text-shadow: 0 2px 12px rgb(0 0 0 / 35%);
+}
+
+.hero .hero-content p {
+  color: rgb(255 255 255 / 92%);
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0 0 20px;
+}
+
+.hero .hero-content p:first-child:not(:has(a)) {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--safra-gold);
+  margin-bottom: 10px;
+}
+
+.hero .hero-content a.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 150px;
+  padding: 13px 28px;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  margin-right: 12px;
+  margin-top: 8px;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.hero .hero-content a.safra-hero-cta-primary,
+.hero .hero-content a.button.primary {
+  background-color: var(--safra-red);
+  border: 1px solid var(--safra-red);
+  color: #fff;
+}
+
+.hero .hero-content a.safra-hero-cta-primary:hover,
+.hero .hero-content a.button.primary:hover {
+  background-color: var(--safra-red-dark);
+  border-color: var(--safra-red-dark);
+}
+
+.hero .hero-content a.safra-hero-cta-secondary,
+.hero .hero-content a.button.secondary {
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.hero .hero-content a.safra-hero-cta-secondary:hover,
+.hero .hero-content a.button.secondary:hover {
+  background-color: #fff;
+  color: #222;
+}
+
+/* Floating SAFRA Crimson Announcement Bar */
+.hero .hero-announcement {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  max-width: 580px;
+  min-height: 62px;
+  padding: 12px 18px;
+  box-sizing: border-box;
+  background-color: var(--safra-red);
+  color: #fff;
+  box-shadow: -4px -4px 20px rgb(0 0 0 / 20%);
+}
+
+.hero .hero-announcement-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.hero .hero-announcement-btn,
+.hero .hero-announcement-dismiss {
+  background: transparent;
+  border: 0;
+  color: #fff;
+  font-size: 20px;
+  line-height: 1;
+  padding: 4px 6px;
+  cursor: pointer;
+  opacity: 0.85;
+}
+
+.hero .hero-announcement-btn:hover,
+.hero .hero-announcement-dismiss:hover {
+  opacity: 1;
+}
+
+.hero .hero-announcement-counter {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  min-width: 28px;
+  text-align: center;
+}
+
+.hero .hero-announcement-text {
+  flex: 1;
+  margin: 0;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.4;
 }
 
 @media (width >= 900px) {
   .hero {
-    padding: 40px 32px;
+    min-height: 540px;
+    padding: 80px 32px 100px;
+  }
+
+  .hero .hero-announcement {
+    border-top-left-radius: 5px;
   }
 }
